@@ -288,7 +288,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="businessLogic\" />
+    <Folder Include="dal\" />
+    <Folder Include="report\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON.ICO" />
   </ItemGroup>
