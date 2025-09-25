@@ -60,7 +60,7 @@ Public Class G001
     Private Sub ShowWorkForm(btn As Button)
         '画面デザインID
         Dim designParam As New DesignParameters With {
-            .DesignID = btn.Tag
+            .DesignId = CStr(btn.Tag)
             }
         '機能画面
         Dim frm As CustomBaseForm

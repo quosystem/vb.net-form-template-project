@@ -24,16 +24,16 @@ Module AppStartUp
         ConfigManager.RunEnvironment = CommonConstants.EnvironmentType.Production
 #End If
 
-
-        ConfigManager.SystemID = "02"
-        ConfigManager.SystemName = "出荷ツール"
+        ConfigManager.SystemID = ""
+        ConfigManager.SystemName = ""
         ConfigManager.SystemIcon = My.Resources.ICON
         ConfigManager.SystemIconImg = My.Resources.ICON.ToBitmap()
         ConfigManager.HostName = System.Environment.MachineName
-        'ConfigManager.TestFormBackColor = My.Settings.TEST_FORM_BACK_COLOR
+
         Try
             ConfigManager.ProActive = New DbCommonService(DatabaseType.oracle, TargetType.proactive)
             ConfigManager.QuoSystem = New DbCommonService(DatabaseType.oracle, TargetType.quo_system)
+            ConfigManager.Quopadb = New DbCommonService(DatabaseType.oracle, TargetType.quopadb)
             ConfigManager.ConstManager = New ConstantManager(DatabaseType.oracle, TargetType.quo_system, ConfigManager.SystemID)
             ConfigManager.SystemLogFolder = ConfigManager.ConstManager.GetConstant("LOG", "LOG_FOLDER")
             SetSystemCommonConfig(CommonConstants.SYSTEM_USER_ID)
