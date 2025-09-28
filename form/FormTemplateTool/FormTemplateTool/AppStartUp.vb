@@ -25,7 +25,6 @@ Module AppStartUp
 #End If
 
         ConfigManager.SystemID = ""
-        ConfigManager.SystemName = ""
         ConfigManager.SystemIcon = My.Resources.ICON
         ConfigManager.SystemIconImg = My.Resources.ICON.ToBitmap()
         ConfigManager.HostName = System.Environment.MachineName

@@ -2,9 +2,12 @@
 
 Public Class G001
 
+    Inherits Common.CustomBaseForm
+
     Private Const MENU_FORM_MIN_HEIGHT As Integer = 60
     Private Const GROUP_BOX_MIN_HEIGHT As Integer = 30
     Private Const MENU_BUTTON_HEIGHT As Integer = 40
+
 
     Public Sub New(designId As String)
         InitializeComponent()
@@ -13,11 +16,15 @@ Public Class G001
         AddHandler Me.Shown, AddressOf Me_Shown
         SetupMenuButton()
     End Sub
+
     Private Sub Me_Shown(sender As Object, e As EventArgs)
         ResizeMenuForm()
         Me.ActiveControl = Nothing
     End Sub
 
+    Private Sub ButtonMenu_Click(sender As Object, e As EventArgs)
+        ShowWorkForm(DirectCast(sender, Button))
+    End Sub
 
     Private Sub ResizeMenuForm()
         Dim menuHeight As Integer = 0
@@ -49,28 +56,27 @@ Public Class G001
         Return gbHeight
     End Function
 
-
     Private Sub SetupMenuButton()
-        ''出荷指示
-        'btnG002.Tag = ConstValue.DP_SHIP_INSTRUCT  '画面デザインID
-        'AddHandler btnG002.Click, AddressOf ButtonMenu_Click 'ボタンクリックイベント
-
+        '出荷指示
+        btnG002.Tag = ConstValue.DESIGN_ID  '画面デザインID
+        AddHandler btnG002.Click, AddressOf ButtonMenu_Click 'ボタンクリックイベント
     End Sub
+
 
     Private Sub ShowWorkForm(btn As Button)
         '画面デザインID
-        Dim designParam As New DesignParameters With {
-            .DesignId = CStr(btn.Tag)
+        Dim designParam As New G002Parameters With {
+            .DesignId = btn.Tag.ToString
             }
         '機能画面
         Dim frm As CustomBaseForm
 
-        'Select Case designParam.DesignId
-        '    Case ConstValue.DP_SHIP_INSTRUCT
-        '        frm = New G002(designParam)
-        '    Case Else
-        '        Return
-        'End Select
+        Select Case designParam.DesignId
+            Case ConstValue.DESIGN_ID
+                frm = New G002(designParam)
+            Case Else
+                Return
+        End Select
 
         'メニュー画面非表示
         Me.Hide()
