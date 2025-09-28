@@ -21,3 +21,6 @@ publish/
 
 # Crystal Reports バックアップフォルダは無視
 **/Crystal Reports バックアップファイル/*
+
+# XSD（XML Schema Definition）ファイルは無視
+*.xsd
