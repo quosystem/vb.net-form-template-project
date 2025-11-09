@@ -25,6 +25,7 @@ Module AppStartUp
 #End If
 
         ConfigManager.SystemID = ""
+        ConfigManager.SystemName = CommonDAL.GetSystemName(ConfigManager.SystemID)
         ConfigManager.SystemIcon = My.Resources.ICON
         ConfigManager.SystemIconImg = My.Resources.ICON.ToBitmap()
         ConfigManager.HostName = System.Environment.MachineName
