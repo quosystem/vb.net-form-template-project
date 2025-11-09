@@ -66,6 +66,7 @@ Module AppStartUp
                                                             userId)
         ConfigManager.ProActive.SetLogger(ConfigManager.Logger)
         ConfigManager.QuoSystem.SetLogger(ConfigManager.Logger)
+        ConfigManager.Quopadb.SetLogger(ConfigManager.Logger)
         ConfigManager.MsgBox = New MessageManager(ConfigManager.Logger)
     End Sub
 
